@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Axios from "axios";
 
-function App() {
+export default function App() {
+  const [searchBar, setSearchBar] = useState("");
+
+  const handleSetSearch = (e) => {
+    const newSearch = e.target.value;
+    setSearchBar(newSearch);
+  };
+
+  const handleSubmit = async () => {
+    await Axios.get("https://mission2luis.cognitiveservices.azure.com/").then(
+      (response) => {
+        console.log(response);
+      }
+    );
+  };
+
+  const hiddenStyles = {
+    display: "none",
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="searchBar">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            onChange={handleSetSearch}
+            placeholder="What can I help you with? "
+          />
+          <button style={hiddenStyles} type="submit" />
+        </form>
+      </div>
     </div>
   );
 }
-
-export default App;

@@ -11,6 +11,9 @@
   "author": "Nick Veale and Callum Brazier",
   "license": "ISC",
   "dependencies": {
+    "@azure/cognitiveservices-luis-authoring": "^4.0.0-preview.3",
+    "@azure/cognitiveservices-luis-runtime": "^5.0.0",
+    "@azure/ms-rest-js": "^2.2.1",
     "nodemon": "^2.0.7"
   }
 }
