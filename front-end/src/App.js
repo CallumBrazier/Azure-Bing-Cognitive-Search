@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Axios from "axios";
 
+import Search from "./Search";
+
 export default function App() {
   const [searchBar, setSearchBar] = useState("");
 
@@ -23,16 +25,7 @@ export default function App() {
 
   return (
     <div>
-      <div className="searchBar">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            onChange={handleSetSearch}
-            placeholder="What can I help you with? "
-          />
-          <button style={hiddenStyles} type="submit" />
-        </form>
-      </div>
+      <Search />
     </div>
   );
 }
